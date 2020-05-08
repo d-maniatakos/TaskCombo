@@ -16,13 +16,13 @@ example,let's say someone wants to create a new Task to start "Chrome.exe".Find 
 path(Shift+Right Click->copy as path)and paste it when it asks for "Task Location".To start the combination of the "Tasks" you have
 added inside a "Session", chose the option "Start Session" 
 
-## Saving Data
+### Saving Data
 
 For saving purposes,a .txt file named save_info.txt is created.When the user exits the application(using the appropriate command),all 
 information are stored there.When the application is executed again,it reads all the previously saved information from this file.If this 
 file is deleted,all saved data is lost.To properly save your changes after using the programme,make sure to use the option "Exit & Save"
 instead of "killing it" with X Button
 
-## Limitations
+### Limitations
 
 TaskGroup works ,currently,only in Windows.It's, also, in an initial form(no appropirate error handling or testing yet)
