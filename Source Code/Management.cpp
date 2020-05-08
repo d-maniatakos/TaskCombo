@@ -5,7 +5,7 @@ Management::Management(){
 }
 
 Management::Management(const char* obj){
-	int i;   
+	int i=0;   
 	string temp;
 	Session* tmp;
 	
