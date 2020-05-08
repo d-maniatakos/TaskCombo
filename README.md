@@ -1,10 +1,10 @@
-# TaskGroup
+# TaskCombo
 An Application for starting Multiple Tasks at Once
 
 ## The Idea
 
 While doing different kinds of work on the computer,it's sometimes necessary to open more than one tasks or applications.For example,to 
-do video editing,someone may need to start a video-editing software, an audio-editing software and a file explorer.With TaskGroup it's 
+do video editing,someone may need to start a video-editing software, an audio-editing software and a file explorer.With TaskCombo it's 
 possible to create many Sessions ( for example a Session for Video Editing,a Session for Office Work ,a session for Music Producing etc. 
 )with many tasks(like software) for each , and then each time , start all of them at once.
 
@@ -25,4 +25,4 @@ instead of "killing it" with X Button
 
 ### Limitations
 
-TaskGroup works ,currently,only in Windows.It's, also, in an initial form(no appropirate error handling or testing yet)
+TaskCombo works ,currently,only in Windows.It's, also, in an initial form(no appropirate error handling or testing yet)
