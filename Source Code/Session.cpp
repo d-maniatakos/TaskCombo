@@ -12,7 +12,7 @@ Session::Session(){
 }
 
 Session::Session(const char* obj){
-	int i;
+	int i=0;
 	int counter=0;
 	string temp;
 	Task* tmp;
