@@ -7,12 +7,12 @@ class Management{
 		Management();			  //Constructor used when there is no already saved data 	
 		Management(const char*);  //Constructor used when reading saved data from a file	
 		~Management(); 
+		   
+		std::list<Session*>	return_Sessions();
+		Session* return_Session(int);
 		
-		void Console();     
-		
-		void Show_Sessions();
-		
-		void Add_Session();
+		void add_Session(const char*);
+		void remove_Session(int);
 		
 		void Clear();
 		
