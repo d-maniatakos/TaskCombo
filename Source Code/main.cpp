@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Management.hpp"
+#include "Console.hpp"
 #include <fstream>
 using namespace std;
 
@@ -21,7 +21,7 @@ int main() {
 		cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl<<endl;
 		
 		Management a; 
-		a.Console();
+		Main_Console(&a);
 		
 		/*Save changes*/
 		myfile.open ("save_info.txt");
@@ -32,7 +32,7 @@ int main() {
 	else{
 		
 		Management a(content.c_str());     //Call constructor importing the saved information
-		a.Console();
+		Main_Console(&a);
 		
 		/*Save changes*/
 		myfile.open ("save_info.txt");
