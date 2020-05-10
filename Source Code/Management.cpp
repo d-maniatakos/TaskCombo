@@ -1,4 +1,5 @@
 #include "Management.hpp"
+#include <iterator>
 using namespace std;
 
 Management::Management(){
@@ -20,7 +21,7 @@ Management::Management(const char* obj){
 			
 		}
 		temp=temp+obj[i];
-		tmp=new Session(temp.c_str());
+		tmp=new Session(temp.c_str(),1);
 		Sessions.push_back(tmp);
 		i++;
 	}
@@ -30,124 +31,40 @@ Management::~Management(){
 	this->Clear();
 }
 
-void Management::Console(){
-	while(1){
-		cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
-	    cout<<"|                Main Window               |"<<endl;
-	    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-	    cout<<endl;
-		cout<<"1)Enter Session"<<endl;
-		cout<<"2)Show Sessions"<<endl;
-		cout<<"3)Add Session"<<endl;
-		cout<<"4)Delete Session"<<endl;
-		cout<<"5)Delete All Sessions"<<endl;
-		cout<<"6)Exit & Save Changes"<<endl<<endl;
-		
-		
-		cout<<"Type a number between 1-6:";
-		short int input;
-		cin>>input;
-		
-		if(input<1 || input>6){
-			cout<<endl<<"Please Enter a Valid Input" << endl <<endl;
-			continue;
-		}
-	
-	
-		switch (input){
-    		case 1:{
-				/*Clear Input Buffer*/
-				cin.clear();
-				cin.ignore();
-				
-				this->Show_Sessions();
-				if(Sessions.empty())break;
-				int choice;
-				cout<<endl<<"Choose Session(Type A Number):";
-				cin >> choice;
-				int counter=1;
-				for (list<Session*>::iterator i=Sessions.begin(); i!=Sessions.end(); i++) {
-					if(choice==counter){
-						(*i)->Console();
-						break;
-					} 
-       				counter++;
-				}				
-     		 break;
-			}
-			case 2:
-				this->Show_Sessions();
-     		break;
-     		 
-     		case 3:
-     			this->Add_Session();
-     			cout<<"!Session Added!"<<endl<<endl;
-     		break;	
-			
-			case 4:{
-				/*Clear Input Buffer*/
-				cin.clear();
-				cin.ignore();
-				
-				this->Show_Sessions();
-				if(Sessions.empty())break;
-				
-				int choice;
-				cout<<endl<<"Which Session do you want to remove(Type A Number)?";
-				cin >> choice;
-				int counter=1;
-				for (list<Session*>::iterator i=Sessions.begin(); i!=Sessions.end(); i++) {
-					if(choice==counter){
-						Sessions.erase(i);
-						break;
-					} 
-       				counter++;
-				}	
-			break;
-			}
-			
-			case 5:{
-				this->Clear();
-				cout<<"!All Sessions Deleted!"<<endl<<endl;
-				break;
-			}
-			
-			case 6:{
-				return;
-				break;
-			}
-		}
-		cout<<"--------------------------------------------"<<endl;
-	}
+
+list<Session*>	Management::return_Sessions(){
+	return Sessions;
 }
 
-
-void Management::Show_Sessions(){
-	list <Session*> :: iterator it; 
-	int counter=0;
-    
-    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
-    cout<<"|               Sessions               |"<<endl;
-    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-    cout<<endl;
-    
-    if(Sessions.empty()){
-    	cout<<"There are currently no Sessions"<<endl;
-    	return;
-	}
-    
-	for(it = Sessions.begin(); it != Sessions.end(); ++it){
-		cout << counter+1 << ")" <<  (*it)->get_Name() << endl;;
-		counter++;
-	}
- 	
- 	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
+Session* Management::return_Session(int indicator){
+	std::list<Session*>::iterator it;
+	int counter=1;
+	
+	
+	for(it = Sessions.begin(); it != Sessions.end(); it++){
+    	if(indicator==counter)return *it;
+    	counter++;
+	}	
+	
+	return NULL;
 }
 
-void Management::Add_Session(){
+void Management::add_Session(const char* nam){
 	Session* temp;
-	temp=new Session();
+	temp=new Session(nam);
 	Sessions.push_back(temp); 
+}
+
+void Management::remove_Session(int indicator){
+	int counter=1;
+	
+	for (list<Session*>::iterator i=Sessions.begin(); i!=Sessions.end(); i++) {
+		if(indicator==counter){
+			Sessions.erase(i);
+			break;
+		} 
+    	counter++;
+	}	
 }
 
 void Management::Clear(){
