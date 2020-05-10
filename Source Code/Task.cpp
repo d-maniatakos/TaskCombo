@@ -1,20 +1,11 @@
 #include "Task.hpp"
+
+#ifdef _WIN32
+	#include <windows.h>          //Used when starting a Windows Task calling ShellExecute function from Windows API
+#endif
+
 using namespace std;
 
-
-Task::Task(){
-	/*Clear Input Buffer*/
-	cin.clear();
-	cin.ignore();
-	
-	cout<< "Enter Task Name     : ";
-	getline(cin, Name); 
-	cout<<endl;
-	
-	cout<< "Enter Task Location : ";
-	getline(cin, Location); 
-	cout<<endl;
-}
 
 Task::Task(const char* nam,const char* loc){
 	Name=nam;
@@ -22,7 +13,7 @@ Task::Task(const char* nam,const char* loc){
 }	
 
 Task::Task(const char* obj){
-	char c;
+	char c=0;
 	int i=0;
 	
 	/*Read Name*/
@@ -46,20 +37,6 @@ void Task::start(){
 	#endif	
 }
 
-void Task::update(){
-	/*Clear Input Buffer*/
-	cin.clear();
-	cin.ignore();
-	
-	cout<< "Enter New Task Name     : ";
-	getline(cin, Name);  
-	cout<<endl;
-	
-	cout<< "Enter New Task Location : ";
-	getline(cin, Location); 
-	cout<<endl;
-}
-
 void Task::update_Name(const char* nam){
 	Name=nam;
 }
@@ -68,16 +45,14 @@ void Task::update_Location(const char* loc){
 	Location=loc;
 }
 
-std::string Task::get_Name(void){
+std::string Task::get_Name(){
 	return Name;
 }
 		
-std::string Task::get_Location(void){
+std::string Task::get_Location(){
 	return Location;
 }
 
 std::string Task::toString(){
 	return Name+"|"+Location+"]";
 }
-		
-
