@@ -75,6 +75,7 @@ void Session::remove_Task(int indicator){
 
 	for (list<Task*>::iterator i=Tasks.begin(); i!=Tasks.end(); i++) {
 		if(indicator==counter){
+			delete *i;             //Deletes space allocated for the Task to be deleted
 			Tasks.erase(i);
 			break;
 		} 
@@ -91,6 +92,12 @@ void Session::update_Name(const char* nam){
 }
 
 void Session::Clear(){
+	list <Task*> :: iterator it; 
+	
+	for(it = Tasks.begin(); it !=Tasks.end(); ++it){
+		delete *it; 	//Deletes space allocated for the Task to be deleted
+	}
+
 	Tasks.clear();
 }
 
