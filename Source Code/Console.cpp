@@ -3,9 +3,9 @@ using namespace std;
 
 void show_Session_List(list<Session*> l){
 	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
-    cout<<"|               Sessions               |"<<endl;
-    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-    cout<<endl;
+	cout<<"|               Sessions               |"<<endl;
+	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    	cout<<endl;
 	
 	if(l.empty()){
 		cout<<endl<<"There are currently no Sessions!"<<endl;
@@ -23,9 +23,9 @@ void show_Session_List(list<Session*> l){
 
 void show_Task_List(list<Task*> l){
 	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"<<endl;
-    cout<<"|                 Tasks                |"<<endl;
-    cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
-    cout<<endl;
+    	cout<<"|                 Tasks                |"<<endl;
+    	cout<<"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+    	cout<<endl;
 	
 	if(l.empty()){
 		cout<<endl<<"There are currently no Tasks in this Session"<<endl;
