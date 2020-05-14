@@ -60,7 +60,7 @@ void Management::remove_Session(int indicator){
 	
 	for (list<Session*>::iterator i=Sessions.begin(); i!=Sessions.end(); i++) {
 		if(indicator==counter){
-			delete *it;        //De-Allocates space allocated for Session
+			delete *i;        //De-Allocates space allocated for Session
 			Sessions.erase(i);
 			break;
 		} 
