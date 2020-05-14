@@ -23,6 +23,5 @@ information are stored there.When the application is executed again,it reads all
 file is deleted,all saved data is lost.To properly save your changes after using the programme,make sure to use the option "Exit & Save"
 instead of "killing it" with X Button
 
-### Limitations
 
-TaskCombo works ,currently,only in Windows.It's, also, in an initial form(no appropirate error handling or testing yet)
+Works on Windows and Linux Operating Systems
