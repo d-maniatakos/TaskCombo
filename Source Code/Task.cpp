@@ -4,6 +4,10 @@
 	#include <windows.h>          //Used when starting a Windows Task calling ShellExecute function from Windows API
 #endif
 
+#ifdef linux
+	#include <stdlib.h>           //Used when starting a Linux Task calling system() function
+#endif
+
 using namespace std;
 
 
@@ -35,6 +39,10 @@ void Task::start(){
 	#ifdef _WIN32
 		ShellExecute(NULL, "open",c, NULL, NULL, SW_SHOWDEFAULT);
 	#endif	
+	
+	#ifdef linux
+		system(c);          
+	#endif
 }
 
 void Task::update_Name(const char* nam){
